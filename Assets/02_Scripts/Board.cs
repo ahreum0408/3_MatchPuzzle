@@ -120,12 +120,14 @@ public class Board : MonoBehaviour {
         }
     }
     private void MakeGamePiece(GameObject piece, int i, int j, int falseYoffset =0, float moveTime = 0.1f) {
+        if(piece != null && IsWithInBounds(i,j)) {
         piece.GetComponent<GamePiece>().Init(this);
         PlaceGamePiece(piece.GetComponent<GamePiece>(), i, j);
 
         if(falseYoffset != 0) { // 내려오는 중이다
             piece.transform.position = new Vector3(i, j + falseYoffset, 0);
             piece.GetComponent<GamePiece>().Move(i, j, moveTime);
+        }
         }
 
         piece.transform.parent = transform;
@@ -578,8 +580,10 @@ public class Board : MonoBehaviour {
     List<GamePiece> GetRowPieces(int row) {
         List<GamePiece> gamePiece = new List<GamePiece>();
 
-        for(int i =0; i < row; i++) {
-            gamePiece.Add(m_allGamePieces[i, row]);
+        for(int i =0; i < width; i++) {
+            if(m_allGamePieces[i,row] != null) {
+                gamePiece.Add(m_allGamePieces[i, row]);
+            }
         }
 
         return gamePiece;
@@ -587,8 +591,10 @@ public class Board : MonoBehaviour {
     List<GamePiece> GetColumnPieces(int column) {
         List<GamePiece> gamePiece = new List<GamePiece>();
 
-        for(int i = 0; i < column; i++) {
-            gamePiece.Add(m_allGamePieces[column, i]);
+        for(int i = 0; i < height; i++) {
+            if(m_allGamePieces[column, i] != null) {
+                gamePiece.Add(m_allGamePieces[column, i]);
+            }
         }
 
         return gamePiece;
@@ -596,6 +602,13 @@ public class Board : MonoBehaviour {
     List<GamePiece> GetAdjacentPiece(int x, int y, int offset = 1) {
         List<GamePiece> gamePiece = new List<GamePiece>();
 
+        for(int i = x - offset; i < x + offset; i++) {
+            for(int j = y-offset; j < y+offset; j++) {
+                if(IsWithInBounds(x, y)) {
+                    gamePiece.Add(m_allGamePieces[i, j]);
+                }
+            }
+        }
 
         return gamePiece;
     }
