@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 794834761}
   - component: {fileID: 794834760}
   m_Layer: 5
-  m_Name: Image
+  m_Name: GackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,6 +515,7 @@ MonoBehaviour:
   clearFXPrefabs: {fileID: 9170247556991731713, guid: f90a650ba8293d143998f11c61772401, type: 3}
   breakFXPrefabs: {fileID: 7401352894641026489, guid: b23e05cfde958a6469ea49d38b6a283e, type: 3}
   doubleBreakFXPrefabs: {fileID: 2401316739299969348, guid: b3280f824926faa4a9f45a3324efc527, type: 3}
+  bombClearFXPrefabs: {fileID: 5739168231618638654, guid: 82221442670ddc542b8fccd1a60d8c0f, type: 3}
 --- !u!4 &1031276919
 Transform:
   m_ObjectHideFlags: 0
@@ -633,28 +634,15 @@ MonoBehaviour:
   - {fileID: 1707601735629389512, guid: a60b44b52344ac54996731fc57887fc2, type: 3}
   - {fileID: 2503106410999002795, guid: 2835329bfcf1ca44f872da1ef7ef9eae, type: 3}
   - {fileID: 2503106410999002795, guid: 458ca8a1ceba33340bca884431f5d11b, type: 3}
-  swapTime: 0.5
+  adjacentBombPrefab: {fileID: 3964258085947361324, guid: 0ff7408c22b8dad4f8212f4e29ee9249, type: 3}
+  columnBombPrefab: {fileID: 7765418886851829939, guid: 1a93e8fa00815774bae3f02fad940101, type: 3}
+  rowBombPrefab: {fileID: 5123952614384388430, guid: 803e8ac7ceb090c4895a34043af3c281, type: 3}
   dotsParent: {fileID: 549249666}
-  startingTiles:
-  - prefabs: {fileID: 5982558893838065985, guid: 6cfbcd94237df0045bf7dda4e3b0ff4c, type: 3}
-    x: 2
-    y: 3
-    z: 1
-  - prefabs: {fileID: 6932919604848406146, guid: 69166c743e1a2174ea5490bc968b829a, type: 3}
-    x: 3
-    y: 2
-    z: 1
+  swapTime: 0.5
+  startingTiles: []
   startingGamePiece:
-  - prefabs: {fileID: 2503106410999002795, guid: 6f3c26c3f9da79644b0d1a5890c9037a, type: 3}
+  - prefabs: {fileID: 4131326608917976675, guid: e1f752f1b818b9648966a1d08a1e069f, type: 3}
     x: 2
-    y: 1
-    z: 0
-  - prefabs: {fileID: 2503106410999002795, guid: 6f3c26c3f9da79644b0d1a5890c9037a, type: 3}
-    x: 3
-    y: 1
-    z: 0
-  - prefabs: {fileID: 2503106410999002795, guid: 6f3c26c3f9da79644b0d1a5890c9037a, type: 3}
-    x: 4
     y: 2
     z: 0
 --- !u!4 &2102237867
