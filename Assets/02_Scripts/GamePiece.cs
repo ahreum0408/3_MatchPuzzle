@@ -9,24 +9,26 @@ public enum InterpType {
     SmootherStep
 };
 public enum MatchValue {
-    Blue,
-    Magenta,
-    Indigo,
-    Green,
-    Teal,
-    Red,
-    Cyan,
-    Yellow,
-    WildKey
+    None,
+    Banana,
+    BlueBerry,
+    Apple,
+    Grape,
+    Orange,
+    Pear,
+    StrawBerry
 };
 public class GamePiece : MonoBehaviour {
     public int xIndex;
     public int yIndex;
+    public int scoreValue = 20;
 
     Board m_board;
 
     public InterpType interploation = InterpType.SmootherStep;
     public MatchValue matchValue;
+
+    [SerializeField] AudioClip clearClip;
 
     private bool isMoveing = false;
 
@@ -107,5 +109,12 @@ public class GamePiece : MonoBehaviour {
             matchValue = pieceToMatch.matchValue;
         }
     }
-
+    public void ScorePoints(int bonus = 0, int multiplier = 1) {
+        if(ScoreManager.Instance != null) {
+            ScoreManager.Instance.AddScores(scoreValue * multiplier + bonus);
+        }
+        if(SoundManager.Instance != null) {
+            SoundManager.Instance.PlayClipAtPoint(clearClip, Vector3.zero);
+        }
+    }
 }

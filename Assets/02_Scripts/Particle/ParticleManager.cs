@@ -6,7 +6,7 @@ public class ParticleManager : MonoBehaviour {
     public GameObject doubleBreakFXPrefabs;
     public GameObject bombClearFXPrefabs;
 
-    public void ClearPieceFXAt(int x, int y, int z) {
+    public void ClearPieceFXAt(int x, int y, int z = 0) {
         if(clearFXPrefabs != null) {
             GameObject clearFX = Instantiate(clearFXPrefabs, new Vector3(x, y, z), Quaternion.identity);
             ParticlePlayer particlePlayer = clearFX.GetComponent<ParticlePlayer>();

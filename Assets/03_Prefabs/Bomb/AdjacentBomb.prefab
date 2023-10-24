@@ -185,8 +185,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xIndex: 0
   yIndex: 0
+  scoreValue: 200
   interploation: 4
-  matchValue: 8
+  matchValue: 9
+  clearClip: {fileID: 8300000, guid: eadcfb9a0c2cb4bea8112ac470640c8e, type: 3}
   bombType: 3
 --- !u!1001 &888732751514771549
 PrefabInstance:

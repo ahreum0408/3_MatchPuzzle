@@ -101,8 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xIndex: 0
   yIndex: 0
+  scoreValue: 100
   interploation: 4
   matchValue: 8
+  clearClip: {fileID: 8300000, guid: eadcfb9a0c2cb4bea8112ac470640c8e, type: 3}
   bombType: 2
 --- !u!1 &8956913923894398694
 GameObject:
