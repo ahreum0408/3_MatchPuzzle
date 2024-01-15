@@ -384,7 +384,7 @@ public partial class Board : MonoBehaviour { // partial : 클래스를 분리한다
             else {
                 m_scoreMultiplier++;
                 if(SoundManager.Instance != null) {
-                    SoundManager.Instance.PlayBounsSound();
+                    SoundManager.Instance.Play("FX/GetPoint");
                 }
                 yield return StartCoroutine(ClearAndCollapseRoutine(matches));
             }

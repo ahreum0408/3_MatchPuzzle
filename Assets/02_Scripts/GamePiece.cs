@@ -28,8 +28,6 @@ public class GamePiece : MonoBehaviour {
     public InterpType interploation = InterpType.SmootherStep;
     public MatchValue matchValue;
 
-    [SerializeField] AudioClip clearClip;
-
     private bool isMoveing = false;
 
     public void Init(Board board) {
@@ -114,7 +112,7 @@ public class GamePiece : MonoBehaviour {
             ScoreManager.Instance.AddScores(scoreValue * multiplier + bonus);
         }
         if(SoundManager.Instance != null) {
-            SoundManager.Instance.PlayClipAtPoint(clearClip, Vector3.zero);
+            SoundManager.Instance.Play("FX/GetPoint");
         }
     }
 }

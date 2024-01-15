@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager> {
 
     protected override void Awake() {
         base.Awake();
+        SoundManager.Instance.Init();
         UpdateScoreText();
 
         m_board = FindObjectOfType<Board>();
@@ -83,7 +84,7 @@ public class GameManager : Singleton<GameManager> {
                 messageWindow.ShowMeaagse(winIcon, "You Win!", "OK");
             }
             if(SoundManager.Instance != null) {
-                SoundManager.Instance.PlayWinSound();
+                SoundManager.Instance.Play("GameOver/Win");
             }
         }
         else {
@@ -91,7 +92,7 @@ public class GameManager : Singleton<GameManager> {
                 messageWindow.ShowMeaagse(loseIcon, "You Lose..", "OK");
             }
             if(SoundManager.Instance != null) {
-                SoundManager.Instance.PlayLoseSound();
+                SoundManager.Instance.Play("GameOver/Lose");
             }
         }
         messageWindow.GetComponent<RextXformMover>().MoveOn();
