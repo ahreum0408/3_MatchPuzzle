@@ -12,14 +12,8 @@ public class SoundManager : Singleton<SoundManager> {
     AudioSource[] _audioSources = new AudioSource[(int)Sound.MaxCount];
     Dictionary<string, AudioClip> _audioClip = new Dictionary<string, AudioClip>();
 
-    //private AudioSource bgmSoundSource;
-    //private AudioSource effectSoundSource;
-
     public int bgmValue = 9;
     public int effectValue = 9;
-
-    //public List<VisualElement> bgmList = new List<VisualElement>();
-    //public List<VisualElement> effectList = new List<VisualElement>();
 
     /// <summary>
     /// SoundManager라는 오브젝트를 만들어서 그 아래에 Sound에 있는 타입 만큼의 오브젝트 생성 후 각각 AudioSource를 붙여줌
@@ -125,15 +119,10 @@ public class SoundManager : Singleton<SoundManager> {
         }
         return audioClip;
     }
-    public void RegulateSound(Sound type, int volume) {
-        if (type == Sound.Bgm) {
-            _audioSources[0].volume = (float)((volume + 1) * 0.1);
-        }
-        else if (type == Sound.Effect) {
-            _audioSources[1].volume = (float)((volume + 1) * 0.1);
-        }
-        else {
-            Debug.LogError("sound error...");
-        }
+    public void BGMRegulateSound(float volume) {
+        _audioSources[0].volume = volume;
+    }
+    public void EFFECTRegulateSound(float volume) {
+        _audioSources[1].volume = volume;
     }
 }

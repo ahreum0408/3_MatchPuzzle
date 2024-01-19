@@ -25,6 +25,7 @@ public class GameManager : Singleton<GameManager> {
     protected override void Awake() {
         base.Awake();
         SoundManager.Instance.Init();
+        SoundManager.Instance.Play("Music/TestBGM", Sound.Bgm);
         UpdateScoreText();
 
         m_board = FindObjectOfType<Board>();
